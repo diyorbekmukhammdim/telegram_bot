@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from aiogram.utils import executor
+import asyncio
 
 TOKEN = "8184836337:AAHH9pyRAj9vfEsK3u9S5YymZNz_acRQsoE"
 
@@ -42,5 +42,8 @@ async def send_photos(message: types.Message):
         await message.answer_photo(url)
 
 
+async def main():
+    await dp.start_polling(bot)
+
 if __name__ == "__main__":
-    executor.start_polling(dp, skip_updates=True)
+    asyncio.run(main())
