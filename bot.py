@@ -12,7 +12,8 @@ dp = Dispatcher()
 keyboard = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="Hayoti va ijodi")],
-        [KeyboardButton(text="Suratlar")]
+        [KeyboardButton(text="Suratlar")],
+        [KeyboardButton(text="Asarlar")]
     ],
     resize_keyboard=True
 )
@@ -36,6 +37,11 @@ async def send_photos(message: types.Message):
     ]
     for url in photo_urls:
         await message.answer_photo(url)
+
+@dp.message(lambda message: message.text == "Asarlar")
+async def send_pdf(message: types.Message):
+    pdf_url = "https://ipkmvd.uz/media/pdf/kitoblar/Shum_bola_Gafur_Gulom.pdf"  # ✅ PDF'ni URL orqali yuborish
+    await message.answer_document(pdf_url, caption="📚 G‘afur G‘ulomning asarlari")
 
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)  # Eski xabarlarni tozalash
