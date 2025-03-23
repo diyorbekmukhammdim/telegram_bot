@@ -40,8 +40,13 @@ async def send_photos(message: types.Message):
 
 @dp.message(lambda message: message.text == "Asarlar")
 async def send_pdf(message: types.Message):
-    pdf_url = "https://ipkmvd.uz/media/pdf/kitoblar/Shum_bola_Gafur_Gulom.pdf"  # ✅ PDF'ni URL orqali yuborish
-    await message.answer_document(pdf_url, caption="📚 G‘afur G‘ulomning asarlari")
+    pdf_urls = [
+        "https://ipkmvd.uz/media/pdf/kitoblar/Shum_bola_Gafur_Gulom.pdf",
+    ]  # 📂 Shu yerga PDF URL'larni kiriting
+
+    for url in pdf_urls:
+        await message.answer_document(url)
+
 
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)  # Eski xabarlarni tozalash
@@ -49,8 +54,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-
-
-
-
