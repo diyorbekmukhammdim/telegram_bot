@@ -47,7 +47,11 @@ Shuningdek, yozuvchi bolalar va o‘smirlarga bag‘ishlab, “Ikki bolalik”, 
 @dp.message(lambda message: message.text == "Suratlar")
 async def send_photos(message: types.Message):
     photo_urls = [
-        "https://upload.wikimedia.org/wikipedia/commons/3/30/%D0%93%D0%B0%D1%84%D1%83%D1%80_%D0%93%D1%83%D0%BB%D1%8F%D0%BC_%28%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82%29.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/3/30/%D0%93%D0%B0%D1%84%D1%83%D1%80_%D0%93%D1%83%D0%BB%D1%8F%D0%BC_%28%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82%29.jpg",
+        "https://yuz.uz/file/news/dc3011b919da5b4b731e955c6180e6a1.jpg",
+        "https://cdn1.img.sputniknews.uz/img/07e7/04/0b/33787405_0:12:543:419_1920x0_80_0_0_ac9a683f2b842b71e6d7ca509db28f5c.jpg",
+        "https://tashkenttimes.uz/images/Personalities/Gafur-gulam.jpg"
+
     ]
     for url in photo_urls:
         await message.answer_photo(url)
@@ -57,7 +61,7 @@ async def forward_post(message: types.Message):
     from_chat_id = -1002645353989  # 📢 Kanal yoki guruh ID'sini shu yerga yozing
     message_id = 2  # 📝 Forward qilmoqchi bo'lgan post ID'si
 
-    await bot.forward_message(chat_id=message.chat.id, from_chat_id=from_chat_id, message_id=message_id)
+    await bot.copy_message(chat_id=message.chat.id, from_chat_id=from_chat_id, message_id=message_id)
 # async def send_pdf(message: types.Message):
 #     pdf_urls = [
 #         "https://ipkmvd.uz/media/pdf/kitoblar/Shum_bola_Gafur_Gulom.pdf",
