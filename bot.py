@@ -20,7 +20,7 @@ keyboard = ReplyKeyboardMarkup(
 
 @dp.message(Command("start"))
 async def start_command(message: types.Message):
-    await message.answer("Assalomu alaykum! Men G‘afur G‘ulom botiman.", reply_markup=keyboard)
+    await message.answer("Assalomu alaykum! Ushbu bot O'ktamova Sarvinozxon tomonidan G‘afur G‘ulom xotirasini abadiylashtirish va ijodini targ'ib qilish maqsadida yaratildi.", reply_markup=keyboard)
 
 @dp.message(lambda message: message.text == "Hayoti va ijodi")
 async def send_biography(message: types.Message):
