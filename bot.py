@@ -53,13 +53,18 @@ async def send_photos(message: types.Message):
         await message.answer_photo(url)
 
 @dp.message(lambda message: message.text == "Asarlar")
-async def send_pdf(message: types.Message):
-    pdf_urls = [
-        "https://ipkmvd.uz/media/pdf/kitoblar/Shum_bola_Gafur_Gulom.pdf",
-    ]  # 📂 Shu yerga PDF URL'larni kiriting
+async def forward_post(message: types.Message):
+    from_chat_id = -1002645353989  # 📢 Kanal yoki guruh ID'sini shu yerga yozing
+    message_id = 2  # 📝 Forward qilmoqchi bo'lgan post ID'si
 
-    for url in pdf_urls:
-        await message.answer_document(url)
+    await bot.forward_message(chat_id=message.chat.id, from_chat_id=from_chat_id, message_id=message_id)
+# async def send_pdf(message: types.Message):
+#     pdf_urls = [
+#         "https://ipkmvd.uz/media/pdf/kitoblar/Shum_bola_Gafur_Gulom.pdf",
+#     ]  # 📂 Shu yerga PDF URL'larni kiriting
+#
+#     for url in pdf_urls:
+#         await message.answer_document(url)
 
 
 async def main():
