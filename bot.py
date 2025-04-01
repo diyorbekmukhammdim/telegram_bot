@@ -76,4 +76,4 @@ async def main():
     await dp.start_polling(bot)  # Botni ishga tushirish
 
 if __name__ == "__main__":
-    asyncio.run(main())
+     asyncio.run(main())
